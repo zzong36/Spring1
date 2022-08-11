@@ -1,0 +1,10 @@
+package di_basic_2;
+
+public class DriverMain {
+
+	public static void main(String[] args) {
+		
+		
+		
+	}
+}

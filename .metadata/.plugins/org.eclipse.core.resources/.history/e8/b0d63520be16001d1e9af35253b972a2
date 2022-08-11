@@ -1,0 +1,16 @@
+package basic_di;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
+
+public class HelloMain {
+
+public static void main(String[] args) {
+		
+//		Hello hello = new Hello();
+//		hello.printHello();
+	
+	ApplicationContext context = new GenericApplicationContext("beanContainer.xml");
+		
+	}
+}

@@ -1,0 +1,11 @@
+package basic_di;
+
+public class HelloMain {
+
+public static void main(String[] args) {
+		
+		Hello hello = new Hello();
+		String hello1 = hello.printHello();
+		
+	}
+}

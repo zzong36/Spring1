@@ -1,0 +1,13 @@
+package di.basic;
+
+public class HankookTire {
+
+	public HankookTire() {
+		System.out.println("HankookTire 생성자입니다");
+	}
+	
+	public String getTireBrand() {
+		return "한국타이어";
+	}
+	
+}

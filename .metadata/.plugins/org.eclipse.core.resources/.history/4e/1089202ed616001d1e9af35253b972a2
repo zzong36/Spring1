@@ -1,0 +1,17 @@
+package di.basic;
+
+public class DriverMain {
+
+	public static void main(String[] args) {
+		
+		
+		//타이어 설정 생성
+		HankookTire hankookTire = new HankookTire();
+		
+		Car car = new Car();
+		car.setTire(hankookTire);
+		
+		
+		car.printTireBrand();
+	}
+}

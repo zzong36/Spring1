@@ -1,0 +1,12 @@
+package kr.ac.kopo;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class MemberController {
+	
+	@RequestMapping(value="/form/joinForm.do")
+	public String get() {
+		
+	}
+
+}

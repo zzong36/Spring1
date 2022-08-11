@@ -1,0 +1,37 @@
+package kr.ac.kopo.member;
+
+import java.net.http.HttpRequest;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MemberController {
+	
+	@RequestMapping(value="/form/joinForm.do")
+	public String get() {
+		return "form/joinForm";
+	}
+	
+	@RequestMapping("/join/do")
+	public String join(HttpServletRequest request) {
+		MemberVO member = new MemberVO();
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		String name= request.getParameter("name");
+		
+		member.setId(id);
+		member.setId(password);
+		member.setId(name);
+//		
+//		request.setAttribute("id", id);
+//		request.setAttribute("password", password);
+//		request.setAttribute("name", name);
+		
+		//form/memberInfo.jsp를 보여줘
+		return "form/memberInfo";
+	}
+
+}
