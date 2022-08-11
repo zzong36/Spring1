@@ -11,7 +11,8 @@
 <a href="<%= request.getContextPath()%>/method/method.do">method</a><br>
 <a href="<%= request.getContextPath()%>/form/joinForm.do">join</a><br>
 <a href="<%= request.getContextPath()%>/resBody.do">responseBody</a><br>
-<a href="<%= request.getContextPath()%>/resBody.json">responseBody</a><br>
+<a href="<%= request.getContextPath()%>/resBody.json">Json 응답1</a><br>
+<a href="<%= request.getContextPath()%>/resVOBody.json">Json 응답2</a><br>
 
 </body>
 </html>

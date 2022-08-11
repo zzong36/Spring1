@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.ac.kopo.member.MemberVO;
+
 @Controller
 public class ResBodyController {
 	
@@ -25,6 +27,16 @@ public class ResBodyController {
 		result.put("name", "홍길동");
 		result.put("password", "1234");
 		return result;
+	}
+	
+	@RequestMapping("resVOBody.json")
+	@ResponseBody
+	public MemberVO resJsonVOBody() {
+		MemberVO member = new MemberVO();
+		member.setId("PARK");
+		member.setName("박길동");
+		member.setPassword("123456");
+		return member;
 	}
 
 }
