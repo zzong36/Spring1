@@ -89,7 +89,7 @@ public class MemberController {
 	public String join6(MemberVO member) {
 		
 		
-		return "redirect:/";
+		return mav;
 	}
 
 }
