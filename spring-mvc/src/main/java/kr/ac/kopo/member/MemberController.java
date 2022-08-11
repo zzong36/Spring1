@@ -84,12 +84,12 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping("/join.do")
-	//Member Attribute 등록
-	public String join6(MemberVO member) {
-		
-		
-		return "redirect:/";
-	}
+//	@RequestMapping("/join.do")
+//	//Member Attribute 등록
+//	public String join6(MemberVO member) {
+//		
+//		
+//		return "redirect:/";
+//	}
 
 }
