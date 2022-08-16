@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -13,7 +13,9 @@
 	crossorigin="anonymous">
 </head>
 <body>
-
+	<c:if test="${ not empty loginVO}">
+		${loginVO.name} 반가워요 
+	</c:if>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 justify-content-center">
