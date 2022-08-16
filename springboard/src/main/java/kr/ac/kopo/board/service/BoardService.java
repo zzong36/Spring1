@@ -7,4 +7,6 @@ import kr.ac.kopo.board.vo.BoardVO;
 
 public interface BoardService {
 	List<BoardVO> getAllBoard();
+	BoardVO getOneBoard(int boardNo);
+	void insertBoard(BoardVO board);
 }

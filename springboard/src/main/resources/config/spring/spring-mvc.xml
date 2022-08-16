@@ -56,6 +56,9 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="mapperLocations"
 			value="classpath:config/sqlmapper/oracle/*.xml" />
+		<property name="configLocation"
+			value="classpath:config/mybatis/mybatis-config.xml"></property>
+
 	</bean>
 	<bean id="sqlSessionTemplate"
 		class="org.mybatis.spring.SqlSessionTemplate">

@@ -9,5 +9,6 @@
 <body>
 
 <a href="${pageContext.request.contextPath}/board">게시판</a>
+
 </body>
 </html>
