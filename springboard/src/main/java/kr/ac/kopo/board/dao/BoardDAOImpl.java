@@ -32,7 +32,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public void insertBoard(BoardVO board) {
-		sqlSessionTemplate.insert("board.dao.baordDAO.insertBoard", board);
+		sqlSessionTemplate.insert("board.dao.boardDAO.insertBoard", board);
 	}
 	
 	

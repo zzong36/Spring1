@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,17 +64,29 @@ public class BoardController {
 
 //	새글쓰기
 	@GetMapping("/board/write")
-	public void writeGet() {
+	public void writeGet(Model model) {
 //		return "board/write";// 없어도 동작함
+
+		BoardVO boardVO1 = new BoardVO();
+		boardVO1.setTitle("제목");
+
+		model.addAttribute("boardVO1", boardVO1);
 	}
 
 //	글쓰기 process
 	@PostMapping("board/write")
-	public String writePost(BoardVO board) {
-		
-		
-		
-		boardService.insertBoard(board);
-		return "redirect:/board";
+	public String writePost(@Valid @ModelAttribute("boardVO1") BoardVO board, BindingResult result) {
+
+//		boardService.insertBoard(board);
+//		System.out.println(result);
+		if (result.hasErrors()) {
+			// error가 존재하는 경우(null이 있는 경우)
+			//board/write.jsp
+			return "board/write";
+		} else {
+			//insert DB -> 전체게시글로 redirect
+			boardService.insertBoard(board);
+			return "redirect:/board";
+		}
 	}
 }

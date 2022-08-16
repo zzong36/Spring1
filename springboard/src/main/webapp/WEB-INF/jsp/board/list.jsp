@@ -28,6 +28,7 @@
 							<th scope="col">#</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
+							<th scope="col">작성일자</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -38,6 +39,7 @@
 									href="${pageContext.request.contextPath}/board/detail/${board.no}">${board.title }</a></td>
 								<%--<td><a href="${pageContext.request.contextPath}/board/detail?boardNo=${board.no}">${board.title }</a></td> --%>
 								<td>${board.writer }</td>
+								<td>${board.regDate} </td>
 							</tr>
 						</c:forEach>
 					</tbody>
