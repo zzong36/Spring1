@@ -27,7 +27,7 @@
 				<h1>회원가입</h1>
 				<form:form
 					action="${pageContext.request.contextPath}/member/register"
-					method="post" modelAttribute="memberVO">
+					method="post" modelAttribute="memberVO1">
 					<table class="table table-striped table-hover">
 						<tbody>
 							<tr>

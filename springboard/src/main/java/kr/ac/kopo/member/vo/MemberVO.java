@@ -7,7 +7,6 @@ public class MemberVO {
 	private String id;
 	@NotEmpty(message="비밀번호를 입력해주세요")
 	private String password;
-	@NotEmpty(message="이름을 입력해주세요")
 	private String name;
 	
 	

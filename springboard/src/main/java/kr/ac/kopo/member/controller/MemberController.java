@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -80,13 +81,22 @@ public class MemberController {
 	@GetMapping("/member/register")
 	public void registerGet(Model model) {
 		MemberVO memberVO1 = new MemberVO();
+//		memberVO1.setId("아이디");
+//		memberVO1.setPassword("비밀번호");
+//		memberVO1.setName("이름");
 		
 		model.addAttribute("memberVO1", memberVO1);
 	}
 	
 	
-//	@PostMapping("member/register")
-//	public String registerPost(@Valid @model) {
-//		
-//	}
+	@PostMapping("member/register")
+	public String registerPost(@Valid @ModelAttribute("memberVO1") MemberVO member, BindingResult result) {
+		if(result.hasErrors()) {
+			return "member/register";
+			
+		}else {
+			memberService.memberRegister(member);
+			return "redirect:/";
+		}
+	}
 }
