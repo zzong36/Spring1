@@ -13,11 +13,11 @@ public class LoginInteceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println("prehandle 동작");
-		System.out.println("handler : " + handler);
-		System.out.println("conxtexPath: " + request.getContextPath());
-		System.out.println("uri : " + request.getRequestURI());
-		System.out.println("queryString : " + request.getQueryString());
+//		System.out.println("prehandle 동작");
+//		System.out.println("handler : " + handler);
+//		System.out.println("conxtexPath: " + request.getContextPath());
+//		System.out.println("uri : " + request.getRequestURI());
+//		System.out.println("queryString : " + request.getQueryString());
 		
 		String dest = request.getRequestURI();
 		dest=dest.substring(request.getContextPath().length());

@@ -11,16 +11,46 @@
 	rel="stylesheet"
 	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#AddReplyBtn').click(function(){
+			
+			let r_content = document.rform.content.value;
+			let r_writer = document.rform.writer.value;
+			console.log(r_content);
+			$.ajax({
+				url: '${pageContext.request.contextPath}/reply',
+				method : 'post',
+				data : {
+					boardNo: ${board.no},
+					content: r_content,
+					writer: r_writer
+				},
+				success: function(){
+					alert('성공');
+				},
+				error : function(){
+					alert('실패');
+				},
+				complete : function(){
+					
+				}
+			})
+		})
+	})
+</script>
 </head>
 <body>
-<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp" />
-	
+	<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp" />
+
 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 justify-content-center">
-			<h1>상세게시글 입니다</h1>
-			<h2 class="text-muted">${board.title} </h2>
+				<h1>상세게시글 입니다</h1>
+				<h2 class="text-muted">${board.title}</h2>
 				<table class="table table-warning table-striped table-hover">
 					<tbody>
 						<tr>
@@ -49,6 +79,31 @@
 						</tr>
 					</tbody>
 				</table>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-10">
+				<div id="replyList"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-10 justify-content-center">
+				<form name="rform">
+					<div class="mb-3">
+						<label for="exampleFormControlInput1" class="form-label">작성자</label>
+						<input type="text" class="form-control"
+							id="exampleFormControlInput1" name="writer">
+					</div>
+					<div class="mb-3">
+						<label for="exampleFormControlTextarea1" class="form-label">댓글</label>
+						<textarea class="form-control" id="exampleFormControlTextarea1"
+							name="content" rows="3"></textarea>
+					</div>
+					<input class="btn btn-outline-secondary" type="button" value="댓글작성"
+						id="AddReplyBtn">
+				</form>
 			</div>
 		</div>
 	</div>
