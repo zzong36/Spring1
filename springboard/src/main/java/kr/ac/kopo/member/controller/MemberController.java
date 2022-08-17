@@ -66,35 +66,44 @@ public class MemberController {
 			} else {
 //				session.setAttribute("loginVO", authMember);
 				model.addAttribute("loginVO", authMember);
+
+				String dest = (String) session.getAttribute("dest");
+
+				if (dest == null) {
+					return "redirect:/";
+				} else {
+
+					return "redirect:/" + dest;
+				}
 			}
-			return "redirect:/";
 		}
 
 	}
 
 	@RequestMapping("/logout")
-	public String logout(SessionStatus sessionStatus) {
+	public String logout(SessionStatus sessionStatus, HttpSession session) {
 		sessionStatus.setComplete();
+		session.invalidate();
+
 		return "redirect:/";
 	}
-	
+
 	@GetMapping("/member/register")
 	public void registerGet(Model model) {
 		MemberVO memberVO1 = new MemberVO();
 //		memberVO1.setId("아이디");
 //		memberVO1.setPassword("비밀번호");
 //		memberVO1.setName("이름");
-		
+
 		model.addAttribute("memberVO1", memberVO1);
 	}
-	
-	
+
 	@PostMapping("member/register")
 	public String registerPost(@Valid @ModelAttribute("memberVO1") MemberVO member, BindingResult result) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			return "member/register";
-			
-		}else {
+
+		} else {
 			memberService.memberRegister(member);
 			return "redirect:/";
 		}

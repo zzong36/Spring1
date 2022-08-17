@@ -21,6 +21,8 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp" />
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 justify-content-center">
@@ -31,14 +33,13 @@
 						<tbody>
 							<tr>
 								<th scope="col">제목</th>
-								<td><form:input path="title" size="30" /> 
-								<form:errors
+								<td><form:input path="title" size="30" /> <form:errors
 										path="title" class="error"></form:errors></td>
 							</tr>
 							<tr>
 								<th scope="col">작성자</th>
-								<td><form:input path="writer" size="30" /> 
-								<form:errors path="writer" class="error"></form:errors></td>
+								<td><form:input path="writer" size="30" /> <form:errors
+										path="writer" class="error"></form:errors></td>
 							</tr>
 							<tr>
 								<th scope="col">내용</th>

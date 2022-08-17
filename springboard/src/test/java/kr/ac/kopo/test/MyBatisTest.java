@@ -40,16 +40,16 @@ public class MyBatisTest {
 //		System.out.println(board);
 	}
 	
-	@Test
-	public void insertBoard() {
-		BoardVO board = new BoardVO();
-		
-		board.setTitle("기니피그");
-		board.setContent("퍼질러져 누눠있는 후덕한 기니피그");
-		board.setWriter("닝닝이");
-		
-		sqlSessionTemplate.insert("board.dao.boardDAO.insertBoard", board);
-	}
+//	@Test
+//	public void insertBoard() {
+//		BoardVO board = new BoardVO();
+//		
+//		board.setTitle("기니피그");
+//		board.setContent("퍼질러져 누눠있는 후덕한 기니피그");
+//		board.setWriter("닝닝이");
+//		
+//		sqlSessionTemplate.insert("board.dao.boardDAO.insertBoard", board);
+//	}
 	
 	@Test
 	public void login() {

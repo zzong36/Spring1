@@ -13,9 +13,9 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<c:if test="${ not empty loginVO}">
-		${loginVO.name} 반가워요 
-	</c:if>
+
+	<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp" />
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 justify-content-center">
@@ -41,7 +41,7 @@
 									href="${pageContext.request.contextPath}/board/detail/${board.no}">${board.title }</a></td>
 								<%--<td><a href="${pageContext.request.contextPath}/board/detail?boardNo=${board.no}">${board.title }</a></td> --%>
 								<td>${board.writer }</td>
-								<td>${board.regDate} </td>
+								<td>${board.regDate}</td>
 							</tr>
 						</c:forEach>
 					</tbody>

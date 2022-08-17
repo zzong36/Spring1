@@ -13,13 +13,14 @@
 	crossorigin="anonymous">
 </head>
 <body>
-
-	상세게시글 입니다
+<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp" />
+	
 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 justify-content-center">
-			<h1>${board.title} </h1>
+			<h1>상세게시글 입니다</h1>
+			<h2 class="text-muted">${board.title} </h2>
 				<table class="table table-warning table-striped table-hover">
 					<tbody>
 						<tr>

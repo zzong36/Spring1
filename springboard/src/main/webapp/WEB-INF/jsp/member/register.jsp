@@ -21,6 +21,8 @@
 </style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp" />
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 justify-content-center">
