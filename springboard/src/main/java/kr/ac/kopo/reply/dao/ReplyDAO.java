@@ -15,8 +15,12 @@ public class ReplyDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
+	
 	public void insertReply(ReplyVO reply) {
 		sqlSessionTemplate.insert("reply.dao.replyDAO.insertReply", reply);
+
+		
+		//t_board replycnt = replyCnt + 1
 	}
 	
 	public List<ReplyVO> selectReplyList(int boardNo){

@@ -7,6 +7,7 @@
 		<result column="title" property="title" />
 		<result column="reg_date" property="regDate" />
 		<result column="view_cnt" property="viewCnt" />
+		<result column="reply_cnt" property="replyCnt" />
 	</resultMap>
 
 	<select id="selectAll" resultMap="boardMap">
@@ -26,4 +27,8 @@
 		values(SEQ_T_BOARD_NO.NEXTVAL, #{title},
 		#{writer},#{content})
 	</insert>
+
+	<update id="increaseReplyCount" parameterType="int">
+		update t_board set reply_cnt = reply_cnt + 1 where no = #{no}
+	</update>
 </mapper>

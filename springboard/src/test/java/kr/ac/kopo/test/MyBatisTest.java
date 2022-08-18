@@ -84,9 +84,15 @@ public class MyBatisTest {
 	}
 	
 	@Test
+	public void updateViewCnt() {
+		int no = 64;
+		sqlSessionTemplate.update("board.dao.boardDAO.increaseReplyCount", no);
+	}
+	
+	@Test
 	public void selectReplyList() {
 		int boardNo = 64;
-		List<ReplyVO> list = sqlSessionTemplate.selectList("reply.dao.replyDAO.selectReplyList", boardNo);
+//		List<ReplyVO> list = sqlSessionTemplate.selectList("reply.dao.replyDAO.selectReplyList", boardNo);
 //		System.out.println(list);
 	}
 }

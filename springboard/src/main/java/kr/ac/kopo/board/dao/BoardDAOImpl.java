@@ -35,6 +35,9 @@ public class BoardDAOImpl implements BoardDAO {
 		sqlSessionTemplate.insert("board.dao.boardDAO.insertBoard", board);
 	}
 	
+	public void increaseReplyCount(int no) {
+		sqlSessionTemplate.update("board.dao.boardDAO.increaseReplyCount", no);
+	}
 	
 
 	
