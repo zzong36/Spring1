@@ -66,7 +66,8 @@
 					alert('실패');
 				},
 				complete : function(){
-					
+					document.rform.content.value = '';
+					document.rform.writer.value = '';
 				}
 			})
 		})
