@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import kr.ac.kopo.reply.vo.ReplyVO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
 @Repository
@@ -14,5 +17,12 @@ public class ReplyDAO {
 	
 	public void insertReply(ReplyVO reply) {
 		sqlSessionTemplate.insert("reply.dao.replyDAO.insertReply", reply);
+	}
+	
+	public List<ReplyVO> selectReplyList(int boardNo){
+		List<ReplyVO> list = new ArrayList<>();
+		
+		list = sqlSessionTemplate.selectList("reply.dao.replyDAO.selectReplyList", boardNo);
+		return list;
 	}
 }

@@ -79,7 +79,14 @@ public class MyBatisTest {
 		reply.setContent("공감합니다");
 		reply.setWriter("찍찍이");
 		
-		sqlSessionTemplate.insert("reply.dao.replyDAO.insertReply", reply);
+//		sqlSessionTemplate.insert("reply.dao.replyDAO.insertReply", reply);
 		
+	}
+	
+	@Test
+	public void selectReplyList() {
+		int boardNo = 64;
+		List<ReplyVO> list = sqlSessionTemplate.selectList("reply.dao.replyDAO.selectReplyList", boardNo);
+//		System.out.println(list);
 	}
 }

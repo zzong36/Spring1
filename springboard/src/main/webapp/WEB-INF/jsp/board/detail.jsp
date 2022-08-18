@@ -14,7 +14,36 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+	function getAllReply(){
+		$('#replyList').empty();
+		$.ajax({
+			url : '${pageContext.request.contextPath}/reply/${board.no}' ,
+			type: 'get',
+			success: function(data){
+				console.log(data);
+				console.log(typeof data);
+				let list = JSON.parse(data);
+				console.log(list);
+				$(list).each(function(){
+					let str = '';
+					str += '<hr>'
+					str +='<div>'
+					str +='<strong>' + this.content  +'</strong>' + '  ';
+					str += this.writer + '  ';
+					str += this.regDate + '  ';
+					str += '</div>'
+					$('#replyList').append(str);
+				})
+			},
+			error:	function(){
+				alert('실패2');
+			}
+		})
+	}
+
 	$(document).ready(function(){
+		getAllReply();
+		
 		$('#AddReplyBtn').click(function(){
 			
 			let r_content = document.rform.content.value;
@@ -30,6 +59,8 @@
 				},
 				success: function(){
 					alert('성공');
+					//댓글 보기
+					getAllReply();
 				},
 				error : function(){
 					alert('실패');
@@ -84,6 +115,7 @@
 
 		<div class="row">
 			<div class="col-md-10">
+			<h3>댓글목록</h3>
 				<div id="replyList"></div>
 			</div>
 		</div>
@@ -91,7 +123,7 @@
 		<div class="row">
 			<div class="col-md-10 justify-content-center">
 				<form name="rform">
-					<div class="mb-3">
+					<div class="my-3">
 						<label for="exampleFormControlInput1" class="form-label">작성자</label>
 						<input type="text" class="form-control"
 							id="exampleFormControlInput1" name="writer">

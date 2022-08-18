@@ -16,4 +16,9 @@
 		insert into t_reply (no, board_no, content, writer)
 		values(seq_t_reply_no.nextval, #{boardNo}, #{content}, #{writer})
 	</insert>
+
+	<select id="selectReplyList" parameterType="int" resultMap="replyMap">
+		select * from t_reply where board_no = #{boardNo} order by no desc
+	</select>
+
 </mapper>
