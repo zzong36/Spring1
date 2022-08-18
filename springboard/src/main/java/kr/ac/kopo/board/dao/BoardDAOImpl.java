@@ -38,6 +38,10 @@ public class BoardDAOImpl implements BoardDAO {
 	public void increaseReplyCount(int no) {
 		sqlSessionTemplate.update("board.dao.boardDAO.increaseReplyCount", no);
 	}
+	public void decreaseReplyCount(int no) {
+		sqlSessionTemplate.update("board.dao.boardDAO.decreaseReplyCount", no);
+		System.out.println("지운다!!!");
+	}
 	
 
 	

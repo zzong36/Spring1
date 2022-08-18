@@ -29,4 +29,9 @@ public class ReplyDAO {
 		list = sqlSessionTemplate.selectList("reply.dao.replyDAO.selectReplyList", boardNo);
 		return list;
 	}
+	
+	public void deleteReply(int no) {
+		sqlSessionTemplate.delete("reply.dao.replyDAO.deleteReply", no);
+		
+	}
 }

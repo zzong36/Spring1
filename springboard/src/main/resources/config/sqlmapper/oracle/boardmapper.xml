@@ -12,12 +12,12 @@
 
 	<select id="selectAll" resultMap="boardMap">
 		select no, title, writer,
-		content, view_cnt, reg_date from t_board order by no desc
+		content, view_cnt, reg_date, reply_cnt from t_board order by no desc
 	</select>
 
 	<select id="selectByNo" parameterType="int" resultType="boardVO"
 		resultMap="boardMap">
-		select no, title, writer, content, view_cnt, reg_date from
+		select no, title, writer, content, view_cnt, reg_date, reply_cnt from
 		t_board where no = #{no}
 	</select>
 
@@ -30,5 +30,9 @@
 
 	<update id="increaseReplyCount" parameterType="int">
 		update t_board set reply_cnt = reply_cnt + 1 where no = #{no}
+	</update>
+	
+	<update id="decreaseReplyCount" parameterType="int">
+		update t_board set reply_cnt = reply_cnt - 1 where no = #{no}
 	</update>
 </mapper>

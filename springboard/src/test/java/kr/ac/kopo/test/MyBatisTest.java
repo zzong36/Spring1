@@ -95,4 +95,15 @@ public class MyBatisTest {
 //		List<ReplyVO> list = sqlSessionTemplate.selectList("reply.dao.replyDAO.selectReplyList", boardNo);
 //		System.out.println(list);
 	}
+	
+	@Test
+	public void deleteReply() {
+		int no = 81;
+//		sqlSessionTemplate.delete("reply.dao.replyDAO.deleteReply", no);
+	}
+	
+	@Test
+	public void decreaseReply() {
+		sqlSessionTemplate.update("");
+	}
 }

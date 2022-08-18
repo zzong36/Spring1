@@ -14,16 +14,31 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+
+/* 	$(document).ready(function({
+	
+		$(document).on('click', '.delBtn', function(){
+			
+			let replyNo = $(this).attr('id');
+			console.log(replyNo)
+			//url: /reply/3/15
+			
+		}) 
+		
+		
+	})) */
+	
+
 	function getAllReply(){
 		$('#replyList').empty();
 		$.ajax({
 			url : '${pageContext.request.contextPath}/reply/${board.no}' ,
 			type: 'get',
 			success: function(data){
-				console.log(data);
-				console.log(typeof data);
+				/* console.log(data);
+				console.log(typeof data); */
 				let list = JSON.parse(data);
-				console.log(list);
+				/* console.log(list); */
 				$(list).each(function(){
 					let str = '';
 					str += '<hr>'
@@ -31,6 +46,7 @@
 					str +='<strong>' + this.content  +'</strong>' + '  ';
 					str += this.writer + '  ';
 					str += this.regDate + '  ';
+					str += '<button class="delBtn btn btn-outline-danger" id="'+ this.no+ '">삭제' + '</button>';
 					str += '</div>'
 					$('#replyList').append(str);
 				})
@@ -43,12 +59,30 @@
 
 	$(document).ready(function(){
 		getAllReply();
+		$(document).on('click', '.delBtn', function(){
+			
+			let replyNo = $(this).attr('id');
+			/* console.log(replyNo) */
+			//url: /reply/3/15
+			$.ajax({
+				url: '${pageContext.request.contextPath}/reply/${board.no}/'+replyNo,
+				method: 'delete',
+				success: function(){
+					alert('삭제 성공');
+					 getAllReply();
+				},
+				error: function(){
+					alert('삭제 실패');
+				}
+			})
+			
+		}) 
 		
 		$('#AddReplyBtn').click(function(){
 			
 			let r_content = document.rform.content.value;
 			let r_writer = document.rform.writer.value;
-			console.log(r_content);
+			/* console.log(r_content); */
 			$.ajax({
 				url: '${pageContext.request.contextPath}/reply',
 				method : 'post',
@@ -116,7 +150,7 @@
 
 		<div class="row">
 			<div class="col-md-10">
-			<h3>댓글목록</h3>
+				<h3>댓글목록</h3>
 				<div id="replyList"></div>
 			</div>
 		</div>
